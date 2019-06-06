@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> Need responsive-->
+    <meta name="viewport" content="width=775">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+    <title>Young Professionals: the game</title>
+</head>
+
+<body>
+    <header>
+        <p>Robin VS Batman</p>
+        <h1>Be a glorious Robin!</h1>
+        <h3>Fight your Batman: in the end there will be only one !</h3>
+        <audio id="my-audio" controls autoplay loop style="display:none">
+            <source id="mp3-src" src="audio/House.mp3" type="audio/mpeg">
+                Votre navigateur ne supporte pas l'élément audio n/ Your browser does not support the audio element.
+        </audio>
+    </header>
+    <main class="interface">
+        <section class="game-option-rules">
+            <article id="game-option">
+                <div id="music-menu">
+                    <button type="button" id="menu-music-button">
+                        <div class="music-icon-play"></div>Activate Music
+                    </button>
+                    <button type="button" id="mute-music-button">
+                        <div class="music-icon-mute"></div>Mute Music
+                    </button>
+                </div>
+                <h2>Welcome to the game!</h2>
+                <p>Here you can adjust the game settings.</p>
+                <p>By default, the playing field has a size of 10 x 10 and a square shape like
+                    a classic board game, 4 weapon chests and 10 impassable obstacles.
+                    Although it is possible to have a table of 100 x 100 with 300 obstacles
+                    and a maximum number of chests, each weapon is unique.
+                    We prefer to limit this number for technical reasons!</p>
+                <h3>Game settings</h3>
+
+                <div class="slide-container">
+                    <p>Board size: <span id="slider-map-value"></span></p>
+                    <input type="range" min="10" max="20" value="10" id="slider-map">
+                </div>
+
+                <div class="slide-container">
+                    <p>Obstacle: <span id="slider-obstacle-value"></span></p>
+                    <input type="range" min="10" max="50" value="10" id="slider-obstacle">
+                </div>
+
+                <div class="slide-container">
+                    <p>Weapon chest: <span id="slider-chest-value"></span></p>
+                    <input type="range" min="1" max="8" value="4" id="slider-chest">
+                </div>
+                <button type="button" id="start-button">PUSH START BUTTON</button>
+            </article>
+            <article id="game-option">
+                <h2>Game's rules</h2>
+                <ul>
+                    <li>The default weapon that equips the players inflict 10 points of damage.</li>
+                    <li>If you pick up a weapon in a chest you will drop it on the ground.</li>
+                    <li>The placement of both players is also random when loading the game.</li>
+                    <li>They can not be in contact in the first turn of play.</li>
+                    <li>If the players make contact on the vertical or horizontal squares, the duel begins.</li>
+                    <li>Players may attack or defend during the duel.If they defend themselves: Half the domage (New skill soon).</li>
+                    <li>The winner is the duel's survivor!</li>
+                </ul>
+                <h3>Game Master</h3>
+            </article>
+        </section>
+        <section class="board-and-players-info">
+            <div id="board"><canvas id="canvas">Votre navigateur ne supporte pas HTML5, veuillez le mettre à
+                    jour pour jouer n/ Your browser does not support
+                    HTML5, please update it to play</canvas>
+                <div><button type="button" id="restart-game" onclick="window.location.reload();">Restart Game</button></div>
+            </div>
+
+            <div id="duel">
+                <button type="button" id="offensive-stance" onclick="currentPlayer.isOffensiveStance();">@ Offensive
+                    Stance</button>
+                <button type="button" id="defensive-stance" onclick="currentPlayer.isDefensiveStance();">* Defensive
+                    Stance</button>
+            </div>
+            <div id="victory">
+                <div><button type="button" id="back-to-the-menu" onclick="window.location.reload();">Back to the Menu</button></div>
+            </div>
+            <aside id="general-informations">
+                <article class="players-info">
+                    <div id="player-1">
+                        <h3>Player 1 : Robin</h3>
+                        <div class="player">
+                            <div class="green-link" id="avatar-player-0"></div>
+                            <aside class="player-stat">
+                                <div class="heal-stat">
+                                    <p>Heal Points:</p>
+                                    <p id="player-0-heal"></p>
+                                </div>
+                                <div id="player-0-heal-stat-2"></div>
+                                <div class="weapon-stat">
+                                    <p>Equiped Weapon:</p>
+                                    <p id="player-0-weapon"></p>
+                                    <p>Power:</p>
+                                    <p id="player-0-weapon-power">10</p>
+                                    <div id="player-0-img-weapon"></div>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                    <div id="player-2">
+                        <h3>Player 2: Batman<mat-progress-bar
+                            mode="indeterminate">
+                        </mat-progress-bar></h3>
+                        <div class="player">
+                            <div class="dark-link" id="avatar-player-1"></div>
+                            <aside class="player-stat">
+                                <div class="heal-stat">
+                                    <p>Heal Points:</p>
+                                    <p id="player-1-heal"></p>
+                                </div>
+                                <div id="player-1-heal-stat-2"></div>
+                                <div class="weapon-stat">
+                                    <p>Equiped Weapon:</p>
+                                    <p id="player-1-weapon"></p>
+                                    <p>Power:</p>
+                                    <p id="player-1-weapon-power">10</p>
+                                    <div id="player-1-img-weapon"></div>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </article>
+                <article class="navi-chat">
+                    <div>
+                        <div class="navi-gif"></div>
+                    </div>
+                    <div class="speech-bubble">
+                        <span id="chat-text">Hey! Be careful!</span>
+                        <div id="square"></div>
+                    </div>
+                </article>
+            </aside>
+        </section>
+
+    </main>
+    <footer>
+        <p>©2019 Nicolas Turlet. Project carried out as part of a training of Front End Developer. All rights reserved.
+            <a href="mailto:contact@nicolasturlet.fr" id="contact">CONTACT ME</a></p>
+
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="js/index.js"></script>
+    <script src="js/weapons.js"></script>
+    <script src="js/character.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/classes/Tileset.js"></script>
+    <script src="js/canvas.js"></script>
+
+
+</body>
+
+</html>
