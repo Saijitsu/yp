@@ -1,4 +1,3 @@
-# theSurvivorSSword
-In Progress: ES6
-
+# Young Professionals Project
+In Progress: ES6 / clear JQuery
 Versioning: Anglais
