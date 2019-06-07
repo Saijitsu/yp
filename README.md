@@ -4,15 +4,21 @@
  Keep It Simple, and Smart <br/>
  Segment CSS code <br/>
 
-### In Progress: ES6
+### In Progress: 
+
+### ES6: (many days)
 - use import/export
 - refactoring
 - check methode
 - add new skills on character
+- batman/batwoman robin/robinette variable
 
+### Found music Royalty free
+
+### Ask designer help
 <br/>
 
-### Clear JQuery library
+### Clear JQuery library (around 3 hours)
 - canvas.js (20 minutes) 
 - character.js (1 hours) 
 - game.js (2 hours) 
