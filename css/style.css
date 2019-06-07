@@ -750,7 +750,7 @@ button {
 }
 
 /* Css Sprites*/
-.music-icon-mute {
+/* .music-icon-mute {
   width: 50px;
   height: 50px;
   background: url("../image/css_sprites.png") -1px -99px;
@@ -760,7 +760,7 @@ button {
   width: 50px;
   height: 50px;
   background: url("../image/css_sprites.png") -53px -99px;
-}
+} */
 
 .green-link {
   width: 96px;
