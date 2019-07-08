@@ -74,7 +74,18 @@ class Character {
 
   // New player 2 location
   changeDropArea() {
-    // Check here: return not here!!! Issue #1
+    /* Check here: return not here!!! Issue #1
+
+    Uncaught ReferenceError: cellWhereToDrop is not defined
+    at Character.changeDropArea (character.js:89)
+    at createPlayer2Cell (index.js:159)
+    at containType (index.js:110)
+    at boardCreation (map.js:30)
+    at HTMLButtonElement.<anonymous> (game.js:15)
+    at HTMLButtonElement.dispatch (jquery.min.js:2)
+    at HTMLButtonElement.y.handle (jquery.min.js:2)
+    
+    */
     if (totalCells <= 100) {
       let deduceYXandCell = lessThanOneHundredCells();
       let deduceY = deduceYXandCell[0];
