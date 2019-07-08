@@ -84,18 +84,30 @@ class Character {
     at HTMLButtonElement.<anonymous> (game.js:15)
     at HTMLButtonElement.dispatch (jquery.min.js:2)
     at HTMLButtonElement.y.handle (jquery.min.js:2)
-    
+
     */
     if (totalCells <= 100) {
       let deduceYXandCell = lessThanOneHundredCells();
       let deduceY = deduceYXandCell[0];
       let deduceX = deduceYXandCell[1];
       let cellWhereToDrop = deduceYXandCell[2]
+      let cell = new Cell(this, cellWhereToDrop, deduceY, deduceX, false);
+      board[deduceY][deduceX] = cell;
+      this.position = cell.numberCell;
+      this.y = deduceY;
+      this.x = deduceX;
+      return cell;
     } else if (totalCells > 100) {
       let deduceYXandCell = moreThanOneHundredCells();
       let deduceY = deduceYXandCell[0];
       let deduceX = deduceYXandCell[1];
       let cellWhereToDrop = deduceYXandCell[2]
+      let cell = new Cell(this, cellWhereToDrop, deduceY, deduceX, false);
+      board[deduceY][deduceX] = cell;
+      this.position = cell.numberCell;
+      this.y = deduceY;
+      this.x = deduceX;
+      return cell;
     }
     let cell = new Cell(this, cellWhereToDrop, deduceY, deduceX, false);
     board[deduceY][deduceX] = cell;
