@@ -109,12 +109,12 @@ class Character {
       this.x = deduceX;
       return cell;
     }
-    let cell = new Cell(this, cellWhereToDrop, deduceY, deduceX, false);
-    board[deduceY][deduceX] = cell;
-    this.position = cell.numberCell;
-    this.y = deduceY;
-    this.x = deduceX;
-    return cell;
+    // let cell = new Cell(this, cellWhereToDrop, deduceY, deduceX, false);
+    // board[deduceY][deduceX] = cell;
+    // this.position = cell.numberCell;
+    // this.y = deduceY;
+    // this.x = deduceX;
+    // return cell;
   }
 
   tripArea() {

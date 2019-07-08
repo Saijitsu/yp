@@ -1,18 +1,16 @@
 // Start the game:
-$("#start-button").click(function () {
-    $(".board-and-players-info").css("display", "flex");
-});
-$("#start-button").click(function () {
-    $(".game-option-rules").hide();
-    $("#duel").hide();
-    $("#victory").hide()
-    userDefinedSettings()
+document.getElementById('start-button').addEventListener('click', () => {
+    document.querySelector('.board-and-players-info').style.display = 'flex';
+    document.querySelector('.game-option-rules').style.display = 'none';
+    document.querySelector('#duel').style.display = 'none';
+    document.querySelector('#victory').style.display = 'none';
+    userDefinedSettings();
     // Who starting the game? Select the player Number
     var playerNumber = Math.floor(Math.random() * Math.floor(numbersOfPlayers));
     currentPlayer = players[playerNumber]; //Selected starting Player
-    currentPlayerIs()
-    createRandomCellList()
-    boardCreation() //create the board
+    currentPlayerIs();
+    createRandomCellList();
+    boardCreation(); //create the board
     // Modify CSS elements
     var elmt = document.getElementById("canvas");
     // Modify style
@@ -20,8 +18,8 @@ $("#start-button").click(function () {
     elmt.style.border = "1px solid #EEC965";
     elmt.width = width;
     elmt.height = height;
-    draw()
+    draw();
     currentPlayer.tripArea();
-    updateStatistics()
-    changeTrack(adventureMusic)
+    updateStatistics();
+    changeTrack(adventureMusic);
 });
