@@ -86,6 +86,7 @@ class Character {
     at HTMLButtonElement.y.handle (jquery.min.js:2)
 
     */
+   // Fast and dirty fixe
     if (totalCells <= 100) {
       let deduceYXandCell = lessThanOneHundredCells();
       let deduceY = deduceYXandCell[0];
@@ -109,12 +110,6 @@ class Character {
       this.x = deduceX;
       return cell;
     }
-    // let cell = new Cell(this, cellWhereToDrop, deduceY, deduceX, false);
-    // board[deduceY][deduceX] = cell;
-    // this.position = cell.numberCell;
-    // this.y = deduceY;
-    // this.x = deduceX;
-    // return cell;
   }
 
   tripArea() {
