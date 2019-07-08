@@ -1,204 +1,208 @@
-function Character(name, heal, weapon, weaponToDeposited, position, y, x, defensiveStance) {
-  this.name = name;
-  this.heal = heal;
-  this.weapon = weapon;
-  this.weaponToDeposited = weaponToDeposited;
-  this.position = position;
-  this.y = y;
-  this.x = x;
-  this.defensiveStance = defensiveStance;
-};
-
-Character.prototype.describe = function () {
-  var description = this.name + " is on cell number " + this.id().position + " has " +
-    this.heal + " points of life, he is equipped with the weapon : \"" +
-    this.equipedWeapon() + "\" he can inflict " +
-    this.dommageDeal() + " damage per hit to " + this.opponent().name +
-    " locate on cell number " + this.opponent().position + ".";
-  return description;
-}
-
-Character.prototype.id = function () {
-  var id = this.name;
-  switch (this.name) {
-    case player1.name:
-      id = players[0]
-      break;
-    case player2.name:
-      id = players[1]
-      break;
+class Character {
+  constructor(name, heal, weapon, weaponToDeposited, position, y, x, defensiveStance) {
+    this.name = name;
+    this.heal = heal;
+    this.weapon = weapon;
+    this.weaponToDeposited = weaponToDeposited;
+    this.position = position;
+    this.y = y;
+    this.x = x;
+    this.defensiveStance = defensiveStance;
   }
-  return id;
-};
 
-Character.prototype.opponent = function () {
-  var opponentIs = this.name;
-  switch (this.name) {
-    case player1.name:
-      opponentIs = players[1]
-      break;
-    case player2.name:
-      opponentIs = players[0]
-      break;
+  describe() {
+    let description = this.name + " is on cell number " + this.id().position + " has " +
+      this.heal + " points of life, he is equipped with the weapon : \"" +
+      this.equipedWeapon() + "\" he can inflict " +
+      this.dommageDeal() + " damage per hit to " + this.opponent().name +
+      " locate on cell number " + this.opponent().position + ".";
+    return description;
   }
-  return opponentIs;
-};
 
-Character.prototype.dommageDeal = function () {
-  return this.weapon.power;
-};
-
-Character.prototype.equipedWeapon = function () {
-  return this.weapon.name;
-};
-
-Character.prototype.characterNear = function () {
-  var firstCellNumber = randomList[obstacleCell + chestCell];
-  var secondCellNumber = numberToTest;
-
-  var valueToTest = [-rows * 4, -(rows * 3 - 1), -rows * 3, -(rows * 3 + 1), -(rows * 2 - 1),
-    -rows * 2, -(rows * 2 + 1), -(rows - 3), -(rows - 2), -(rows - 1), -rows, -(rows * 3 + 1),
-    -(rows + 1), -(rows + 2), -(rows + 3), -1, -2, -3, -4, 1, 2, 3, 4, rows * 4, (rows * 3 - 1),
-    rows * 3, (rows * 3 + 1), (rows * 2 - 1), rows * 2, (rows * 2 + 1), (rows - 3), (rows - 2),
-    (rows - 1), rows, (rows * 3 + 1), (rows + 1), (rows + 2), (rows + 3)
-  ]
-  for (var i = 0; i < valueToTest.length; i++) {
-    var valueToAdd = valueToTest[i];
-    if (secondCellNumber != (firstCellNumber + valueToAdd)) {} else if (secondCellNumber = (firstCellNumber + valueToAdd)) {
-      return true;
+  id() {
+    let id = this.name;
+    switch (this.name) {
+      case player1.name:
+        id = players[0]
+        break;
+      case player2.name:
+        id = players[1]
+        break;
     }
+    return id;
   }
-  return false;
-}
 
-// New player 2 location
-Character.prototype.changeDropArea = function () {
-  if (totalCells <= 100) {
-    var deduceYXandCell = lessThanOneHundredCells();
-    var deduceY = deduceYXandCell[0];
-    var deduceX = deduceYXandCell[1];
-    var cellWhereToDrop = deduceYXandCell[2]
-  } else if (totalCells > 100) {
-    var deduceYXandCell = moreThanOneHundredCells();
-    var deduceY = deduceYXandCell[0];
-    var deduceX = deduceYXandCell[1];
-    var cellWhereToDrop = deduceYXandCell[2]
+  opponent() {
+    let opponentIs = this.name;
+    switch (this.name) {
+      case player1.name:
+        opponentIs = players[1]
+        break;
+      case player2.name:
+        opponentIs = players[0]
+        break;
+    }
+    return opponentIs;
   }
-  var cell = new Cell(this, cellWhereToDrop, deduceY, deduceX, false);
-  board[deduceY][deduceX] = cell;
-  this.position = cell.numberCell;
-  this.y = deduceY;
-  this.x = deduceX;
-  return cell;
-}
 
-Character.prototype.tripArea = function () {
-  var startingCell = board[this.y][this.x].numberCell
-  var leftDirection = [-1, -2, -3]
-  var downDirection = [rows, (rows * 2), (rows * 3)]
-  var rightDirection = [1, 2, 3]
-  var upDirection = [-rows, -(rows * 2), -(rows * 3)]
-  var directionToTest = [leftDirection, downDirection, rightDirection, upDirection]
+  dommageDeal() {
+    return this.weapon.power;
+  }
 
-  for (var j = 0; j < 4; j++) {
-    for (var i = 0; i < 3; i++) {
-      var valueToAdd = directionToTest[j][i];
-      var tryIfFreeCell = (startingCell + valueToAdd);
-      if (tryIfFreeCell >= 0 && tryIfFreeCell <= totalCells - 1) {
-        var deduceY = cellList[tryIfFreeCell].y
-        var deduceX = cellList[tryIfFreeCell].x
-        if (board[deduceY][deduceX].freeCell === true) {
-          if (j === 0 || j === 2) {
-            var line = this.y;
-            if (deduceY === line) {
+  equipedWeapon() {
+    return this.weapon.name;
+  }
+
+  characterNear() {
+    let firstCellNumber = randomList[obstacleCell + chestCell];
+    let secondCellNumber = numberToTest;
+
+    let valueToTest = [-rows * 4, -(rows * 3 - 1), -rows * 3, -(rows * 3 + 1), -(rows * 2 - 1),
+      -rows * 2, -(rows * 2 + 1), -(rows - 3), -(rows - 2), -(rows - 1), -rows, -(rows * 3 + 1),
+      -(rows + 1), -(rows + 2), -(rows + 3), -1, -2, -3, -4, 1, 2, 3, 4, rows * 4, (rows * 3 - 1),
+      rows * 3, (rows * 3 + 1), (rows * 2 - 1), rows * 2, (rows * 2 + 1), (rows - 3), (rows - 2),
+      (rows - 1), rows, (rows * 3 + 1), (rows + 1), (rows + 2), (rows + 3)
+    ]
+    for (let i = 0; i < valueToTest.length; i++) {
+      let valueToAdd = valueToTest[i];
+      if (secondCellNumber != (firstCellNumber + valueToAdd)) {} else if (secondCellNumber = (firstCellNumber + valueToAdd)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // New player 2 location
+  changeDropArea() {
+    if (totalCells <= 100) {
+      let deduceYXandCell = lessThanOneHundredCells();
+      let deduceY = deduceYXandCell[0];
+      let deduceX = deduceYXandCell[1];
+      let cellWhereToDrop = deduceYXandCell[2]
+    } else if (totalCells > 100) {
+      let deduceYXandCell = moreThanOneHundredCells();
+      let deduceY = deduceYXandCell[0];
+      let deduceX = deduceYXandCell[1];
+      let cellWhereToDrop = deduceYXandCell[2]
+    }
+    let cell = new Cell(this, cellWhereToDrop, deduceY, deduceX, false);
+    board[deduceY][deduceX] = cell;
+    this.position = cell.numberCell;
+    this.y = deduceY;
+    this.x = deduceX;
+    return cell;
+  }
+
+  tripArea() {
+    let startingCell = board[this.y][this.x].numberCell
+    let leftDirection = [-1, -2, -3]
+    let downDirection = [rows, (rows * 2), (rows * 3)]
+    let rightDirection = [1, 2, 3]
+    let upDirection = [-rows, -(rows * 2), -(rows * 3)]
+    let directionToTest = [leftDirection, downDirection, rightDirection, upDirection]
+
+    for (let j = 0; j < 4; j++) {
+      for (let i = 0; i < 3; i++) {
+        let valueToAdd = directionToTest[j][i];
+        let tryIfFreeCell = (startingCell + valueToAdd);
+        if (tryIfFreeCell >= 0 && tryIfFreeCell <= totalCells - 1) {
+          let deduceY = cellList[tryIfFreeCell].y
+          let deduceX = cellList[tryIfFreeCell].x
+          if (board[deduceY][deduceX].freeCell === true) {
+            if (j === 0 || j === 2) {
+              let line = this.y;
+              if (deduceY === line) {
+                highLightning.push(tryIfFreeCell);
+                board[deduceY][deduceX].highLightning = true;
+              } else {
+                i = 3
+              }
+            }
+            if (j === 1 || j === 3) {
               highLightning.push(tryIfFreeCell);
               board[deduceY][deduceX].highLightning = true;
-            } else {
-              i = 3
             }
+          } else {
+            i = 3
           }
-          if (j === 1 || j === 3) {
-            highLightning.push(tryIfFreeCell);
-            board[deduceY][deduceX].highLightning = true;
-          }
-        } else {
-          i = 3
         }
       }
     }
+    draw();
   }
-  draw();
-}
 
-// changement de position du joueur sur la carte
-//Character.prototype.changeOfPosition = function () {
-//    var highLightningArray = this.tripArea();
-//}
+  // changement de position du joueur sur la carte
+  //Character.prototype.changeOfPosition = function () {
+  //    let highLightningArray = this.tripArea();
+  //}
 
-Character.prototype.changeOfPlayerSTurn = function () {
-  updateStatistics()
-  if (this.playersCollision() === false) {
-    shakeBottleImage()
-    $("#chat-text").text("Hey! Listen! No fight this turn!");
-    heyListen()
-    currentPlayerIs()
-    highLightning = [];
-    currentPlayer.tripArea(); // Trip Area of current player.
-    setTimeout(function () {
-      $("#chat-text").text(currentPlayer.describe());
-    }, 1000);
-  } else {
-    changeTrack(fightMusic)
-    currentPlayer.duel()
+  changeOfPlayerSTurn() {
+    updateStatistics()
+    if (this.playersCollision() === false) {
+      shakeBottleImage();
+      document.getElementById('chat-text').textContent = 'Hey! Listen! No fight this turn!';
+      heyListen();
+      currentPlayerIs()
+      highLightning = [];
+      currentPlayer.tripArea(); // Trip Area of current player.
+      setTimeout(() => {
+        document.getElementById('chat-text').textContent = currentPlayer.describe();
+      }, 1000);
+    } else {
+      changeTrack(fightMusic);
+      currentPlayer.duel();
+    }
   }
-}
 
-Character.prototype.changeOfPlayerSDuelTurn = function () {
-  currentPlayerIs()
-  updateStatistics()
-  setTimeout(function () {
-    $("#chat-text").text(currentPlayer.name + " enters the fight.");
-  }, 3500);
-}
-
-Character.prototype.playersCollision = function () {
-  if (this.opponent().position === this.position - 1 || this.opponent().position === this.position + 1 ||
-    this.opponent().position === this.position - rows || this.opponent().position === this.position + rows) {
-    return true; // Vertical or horizontal collision détected
-  } else {
-    return false;
+  changeOfPlayerSDuelTurn() {
+    currentPlayerIs();
+    updateStatistics();
+    setTimeout(() => {
+      document.getElementById('chat-text').textContent = currentPlayer.name + ' Hey! Listen! No fight this turn!';
+    }, 3500);
   }
+
+  playersCollision() {
+    if (this.opponent().position === this.position - 1 || this.opponent().position === this.position + 1 ||
+      this.opponent().position === this.position - rows || this.opponent().position === this.position + rows) {
+      return true; // Vertical or horizontal collision détected
+    } else {
+      return false;
+    }
+  }
+
+  duel() {
+    shakeBottleImage();
+    document.getElementById('chat-text').textContent = 'Hey! Listen! Fight this turn!';
+    heyListen();
+    document.getElementById('duel').style.display = 'flex';
+    document.getElementById('canvas').style.display = 'none';
+    document.getElementById('restart-game').style.display = 'none';
+  }
+
+  isDefensiveStance() {
+    currentPlayer = this;
+    currentPlayer.defensiveStance = true;
+    shakeBottleImage();
+    document.getElementById('chat-text').textContent = currentPlayer.name + ' adopt a defensive stance! Half damage on the next attack received.';
+    fight();
+  }
+
+  isOffensiveStance() {
+    currentPlayer.defensiveStance = false;
+    shakeBottleImage();
+    document.getElementById('chat-text').textContent = currentPlayer.name + ' adopt an offensive stance!';
+    fight();
+  }
+
 }
 
-Character.prototype.duel = function () {
-  shakeBottleImage()
-  $("#chat-text").text("Hey! Listen! Fight this turn!");
-  heyListen()
-  $("#duel").show();
-  $("#canvas").hide();
-  $("#restart-game").hide();
-}
-
-Character.prototype.isDefensiveStance = function () {
-  currentPlayer = this;
-  currentPlayer.defensiveStance = true;
-  shakeBottleImage()
-  $("#chat-text").text(currentPlayer.name + " adopt a defensive stance! Half damage on the next attack received.");
-  fight()
-}
-
-Character.prototype.isOffensiveStance = function () {
-  currentPlayer.defensiveStance = false;
-  shakeBottleImage()
-  $("#chat-text").text(currentPlayer.name + " adopt an offensive stance!");
-  fight()
-}
 
 // Object Player One
-var player1 = new Character("Robin", 100, weapons[0]);
+let player1 = new Character("Robin", 100, weapons[0]);
 
 // Object Player two
-var player2 = new Character("Batman", 100, weapons[0]);
+let player2 = new Character("Batman", 100, weapons[0]);
 
 // Character Array!
-var players = [player1, player2];
+let players = [player1, player2];
