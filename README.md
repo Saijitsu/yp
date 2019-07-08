@@ -7,11 +7,15 @@
 ### In Progress: 
 
 ### ES6: (many days)
-- use import/export
+- use import/export (Check all fonctions)
 - refactoring
 - check methode
 - add new skills on character
 - batman/batwoman robin/robinette variable
+
+### Refactoring
+- currentPlayerIs() too long
+-   changeDropArea() Repeat
 
 ### Found music Royalty free
 
