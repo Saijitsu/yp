@@ -74,6 +74,7 @@ class Character {
 
   // New player 2 location
   changeDropArea() {
+    // Check here: return not here!!! Issue #1
     if (totalCells <= 100) {
       let deduceYXandCell = lessThanOneHundredCells();
       let deduceY = deduceYXandCell[0];
