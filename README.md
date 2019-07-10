@@ -15,7 +15,7 @@
 
 ### Refactoring
 - currentPlayerIs() too long
--   changeDropArea() Repeat
+- changeDropArea() Repeat
 
 ### Found music Royalty free
 

@@ -1,16 +1,16 @@
-var Tilewidth = 50;
-var ts = new Tileset(src="//zupimages.net/up/18/42/szax.png");
+let Tilewidth = 50;
+let ts = new Tileset("https://zupimages.net/up/18/42/szax.png");
 
 function draw() {
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // Variables utiles au canvas
     // vérifier la présence du canvas:
-    for (var i = 0; i < rows; i++) {
-        for (var j = 0; j < columns; j++) {
-            var dx = j * Tilewidth;
-            var dy = i * Tilewidth;
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < columns; j++) {
+            let dx = j * Tilewidth;
+            let dy = i * Tilewidth;
 
             if (board[i][j].contain === 0 || board[i][j].contain === 1) {//Empty & Obstacle Cell
                 switch (board[i][j].contain) {
@@ -47,7 +47,7 @@ function draw() {
                         break;
                 }
             } else { // Tresure Chest Cell
-                for (var itemNumber = 0; itemNumber < weapons.length; itemNumber++) {
+                for (let itemNumber = 0; itemNumber < weapons.length; itemNumber++) {
                     if (board[i][j].contain === weapons[itemNumber]) {
                         if (weapons[itemNumber].worn === false) {
                             ts.drawTile(3, ctx, dx, dy);
