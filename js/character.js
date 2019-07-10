@@ -82,9 +82,6 @@ class Character {
     at containType (index.js:110)
     at boardCreation (map.js:30)
     at HTMLButtonElement.<anonymous> (game.js:15)
-    at HTMLButtonElement.dispatch (jquery.min.js:2)
-    at HTMLButtonElement.y.handle (jquery.min.js:2)
-
     */
    // Fast and dirty fixe
     if (totalCells <= 100) {

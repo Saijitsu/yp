@@ -1,41 +1,41 @@
 // Game settings
-let numbersOfPlayers = 2;
-let obstacleCell = null;
-let chestCell = null;
-let highLightning = [];
-let boardSize = null;
-let rows = boardSize;
-let columns = boardSize;
-let width = columns * 50;
-let height = rows * 50;
-let totalCells = rows * columns;
-let cellList = [];
-let tilePixelCut = 50;
-let currentPlayer = null;
-let opponentPlayer = null;
-let yOnClick = null;
-let xOnClick = null;
-let oneHundredDeduceY = null;
-let oneHundredDeduceX = null;
-let currentCellPosition = 0;
-let randomList = [];
+let numbersOfPlayers = 2,
+    obstacleCell = null;
+    chestCell = null,
+    highLightning = [],
+    boardSize = null,
+    rows = boardSize,
+    columns = boardSize,
+    width = columns * 50,
+    height = rows * 50,
+    totalCells = rows * columns,
+    cellList = [],
+    tilePixelCut = 50,
+    currentPlayer = null,
+    opponentPlayer = null,
+    yOnClick = null,
+    xOnClick = null,
+    oneHundredDeduceY = null,
+    oneHundredDeduceX = null,
+    currentCellPosition = 0,
+    randomList = [];
 
-const sliderMapValue = document.getElementById("slider-map");
-const outputMap = document.getElementById("slider-map-value");
+const sliderMapValue = document.getElementById("slider-map"),
+      outputMap = document.getElementById("slider-map-value");
 outputMap.innerHTML = sliderMapValue.value; // Display the default slider value
 // Update the current slider value (each time you drag the slider handle)
 sliderMapValue.oninput = function () {
   outputMap.innerHTML = this.value;
 };
-const sliderObstacleValue = document.getElementById("slider-obstacle");
-const outputObstacle = document.getElementById("slider-obstacle-value");
+const sliderObstacleValue = document.getElementById("slider-obstacle"),
+      outputObstacle = document.getElementById("slider-obstacle-value");
 outputObstacle.innerHTML = sliderObstacleValue.value; // Display the default slider value
 // Update the current slider value (each time you drag the slider handle)
 sliderObstacleValue.oninput = function () {
   outputObstacle.innerHTML = this.value;
 };
-const sliderChestValue = document.getElementById("slider-chest");
-const outputChest = document.getElementById("slider-chest-value");
+const sliderChestValue = document.getElementById("slider-chest"),
+      outputChest = document.getElementById("slider-chest-value");
 outputChest.innerHTML = sliderChestValue.value; // Display the default slider value
 // Update the current slider value (each time you drag the slider handle)
 sliderChestValue.oninput = function () {
@@ -173,7 +173,7 @@ method which returns the mouse coordinates based on the position
  the getBoundingClientRect() method of the window object:
  The Element.getBoundingClientRect() method returns
  the size of an element and its position relative to the viewport*/
-canvas.addEventListener("click", function (e) {
+canvas.addEventListener("click", (e) => {
   const getMousePositionYX = getMousePosition(canvas, e);
   const getMousePositionY = getMousePositionYX[0];
   const getMousePositionX = getMousePositionYX[1];
@@ -319,7 +319,7 @@ function currentPlayerIs() {
     let element6 = document.querySelector('#duel');
     element6.style.background = "linear-gradient(180deg, rgb(106, 47, 243) 20%, rgb(180, 49, 241) 30%," +
       " rgb(255, 255, 255) 60%, transparent 62%, transparent 100%), url('./image/duelBackground.png') no-repeat bottom";
-    return currentPlayer
+    return currentPlayer;
   } else {
     currentPlayer = players[0]
     const element7 = document.querySelector('#player-1');
@@ -344,7 +344,7 @@ function currentPlayerIs() {
     const element12 = document.querySelector('#duel');
     element12.style.background = "linear-gradient(180deg, rgb(61, 189, 248) 20%, rgb(66, 212, 248) 30%," +
       "rgb(255, 255, 255) 60%, transparent 62%, transparent 100%), url('./image/duelBackground.png') no-repeat bottom";
-    return currentPlayer
+    return currentPlayer;
   }
 }
 
@@ -388,7 +388,7 @@ function livingOpponent() {
   } else if (opponentPlayer.heal < 0) {
     setTimeout(function () {
       shakeBottleImage();
-      var element2 = document.querySelector('#chat-text');
+      let element2 = document.querySelector('#chat-text');
       element2.textContent = opponentPlayer.name + " was overhit!";
     }, 1000);
   }
@@ -399,7 +399,7 @@ function deadOpponent() {
   changeTrack(victoryMusic);
   setTimeout(function () {
     shakeBottleImage();
-    var element2 = document.querySelector('#chat-text');
+    let element2 = document.querySelector('#chat-text');
     element2.textContent = opponentPlayer.name + " is unconscious! " + currentPlayer.name + " is the winner!";
   }, 2000);
 }

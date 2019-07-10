@@ -23,9 +23,9 @@
 <br/>
 
 ### Clear JQuery library (around 3 hours)
-- canvas.js (20 minutes) 
-- character.js (1 hours) 
-- game.js (2 hours) 
+- DONE. canvas.js (20 minutes) 
+- DONE. character.js (1 hours) 
+- DONE. game.js (2 hours) 
 <br/>
 
 ### Versioning 
