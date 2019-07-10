@@ -39,5 +39,5 @@ const weapons = [PEASANT_SWORD, SWORD_OF_WIND, SWORD_OF_FIRE, SWORD_OF_THUNDER,
 // Array of entry in weapons Array (less the first one):
 let weaponsEntry = [];
 for (let entry = 1; entry < weapons.length; entry++) {
-  weaponsEntry.push(entry)
+  weaponsEntry.push(entry);
 }

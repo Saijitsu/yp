@@ -96,20 +96,20 @@ function createRandomCellList() { // Array of random list of total cells.
 function containType() { // Contain of the board!
   for (let i = 0; i < obstacleCell; i++) {
     if (currentCellPosition === randomList[i]) {
-      return createObstacleCell()
+      return createObstacleCell();
     }
   }
   for (let j = obstacleCell; j < obstacleCell + chestCell; j++) {
     if (currentCellPosition === randomList[j]) {
-      return createChestCell()
+      return createChestCell();
     }
   }
   if (currentCellPosition === randomList[obstacleCell + chestCell]) {
-    return createPlayer1Cell()
+    return createPlayer1Cell();
   } else if (currentCellPosition === randomList[obstacleCell + chestCell + 1]) {
-    return createPlayer2Cell()
+    return createPlayer2Cell();
   } else {
-    return createEmptyCell()
+    return createEmptyCell();
   }
 }
 
@@ -156,7 +156,7 @@ function createPlayer2Cell() {
     return cell; // Safe zone: player 2 confirmed
   } else if (players[1].characterNear(x, y, board.length, board,
       numberToTest = randomList[obstacleCell + chestCell + 1]) === true) {
-    players[1].changeDropArea() // Unsafe zone: Player 2 need new location.
+    players[1].changeDropArea(); // Unsafe zone: Player 2 need new location.
     return new Cell(0, currentCellPosition, y, x, true); // Player 1 near, Empty cell dropped.
   }
 }
@@ -201,7 +201,7 @@ function getMousePosition(canvas, e) {
   const rect = canvas.getBoundingClientRect();
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
-  return [y, x]
+  return [y, x];
 }
 
 function clickEmptyCell() {
@@ -289,7 +289,7 @@ function lessThanOneHundredCells() { // New Player 2 drop location
     }
     return [deduceY, deduceX, cellWhereToDrop]
   } else {
-    return lessThanOneHundredCells()
+    return lessThanOneHundredCells();
   }
 }
 
