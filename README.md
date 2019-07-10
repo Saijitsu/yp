@@ -34,4 +34,9 @@
 - HTML 5 (API canvas / tilemapping)
 - CSS (keyframes / sprite)
 
-
+### Music
+- Menu
+- Adventure
+- Fight
+- warning (mignon character)
+- victory
