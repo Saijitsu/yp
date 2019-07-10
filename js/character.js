@@ -83,7 +83,7 @@ class Character {
     at boardCreation (map.js:30)
     at HTMLButtonElement.<anonymous> (game.js:15)
     */
-   // Fast and dirty fixe
+   // Fast and dirty fix
     if (totalCells <= 100) {
       let deduceYXandCell = lessThanOneHundredCells();
       let deduceY = deduceYXandCell[0];
@@ -153,7 +153,7 @@ class Character {
   //}
 
   changeOfPlayerSTurn() {
-    updateStatistics()
+    updateStatistics();
     if (this.playersCollision() === false) {
       shakeBottleImage();
       document.getElementById('chat-text').textContent = 'Hey! Listen! No fight this turn!';
