@@ -1,6 +1,6 @@
 // Game settings
 let numbersOfPlayers = 2,
-    obstacleCell = null;
+    obstacleCell = null,
     chestCell = null,
     highLightning = [],
     boardSize = null,
