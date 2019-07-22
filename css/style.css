@@ -54,6 +54,7 @@ body {
   width: 600px;
   height: 600px;
   margin: 20px;
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -325,7 +326,7 @@ header h1,
 #victory h1 {
   font-size: 68px;
   font-weight: 800;
-  background: -webkit-linear-gradient(70deg, #00a2ff 20%, #65e9ee 40%, white 50%, #65e9ee 60%, #00a2ff 80%);
+  background: -webkit-linear-gradient(70deg, #FFF200 20%, #FFF200 40%, white 50%, #FFF200 60%, #FFF200 80%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -334,7 +335,7 @@ header h1,
 
 header p {
   font-size: 28px;
-  background: -webkit-linear-gradient(90deg, #65e9ee 35%, white 50%, #65e9ee 65%);
+  background: -webkit-linear-gradient(90deg, #FFF200 35%, white 50%, #FFF200 65%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -342,12 +343,13 @@ header p {
 }
 
 header h3 {
-  background: -webkit-linear-gradient(90deg, #65e9ee 25%, white 50%, #65e9ee 75%);
+  background: -webkit-linear-gradient(90deg, #FFF200 25%, white 50%, #FFF200 75%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 100;
   margin-top: -5px;
+  margin-bottom: 40px;
 }
 
 header::after {
@@ -365,10 +367,9 @@ header::after {
 
 main {
   flex-grow: 1;
-  background-image: url("../image/background2.jpg");
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: cover;
+  background-image: url("../image/pattern-batman.png");
+  background-color: #484848;
+  background-repeat: repeat;
 }
 
 footer {
