@@ -12,6 +12,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Ubuntu-Light";
+  src: url("../css/font/Ubuntu-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 body {
   font-family: "Bangers-Regular";
@@ -24,7 +31,8 @@ body {
 
 .game-option-rules,
 #music-menu {
-  font-family: "Bangers-Regular";
+  color: white;
+  font-family: "Ubuntu-Light";
   font-weight: bolder;
   display: flex;
   flex-direction: row;
@@ -46,7 +54,7 @@ body {
 
 #game-option,
 #game-rules {
-  background-color: rgba(101, 238, 204, 0.575);
+  background-color: rgba(0, 0, 0, 0.418);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
