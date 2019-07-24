@@ -1,41 +1,41 @@
 // Game settings
 let numbersOfPlayers = 2,
-    obstacleCell = null,
-    chestCell = null,
-    highLightning = [],
-    boardSize = null,
-    rows = boardSize,
-    columns = boardSize,
-    width = columns * 50,
-    height = rows * 50,
-    totalCells = rows * columns,
-    cellList = [],
-    tilePixelCut = 50,
-    currentPlayer = null,
-    opponentPlayer = null,
-    yOnClick = null,
-    xOnClick = null,
-    oneHundredDeduceY = null,
-    oneHundredDeduceX = null,
-    currentCellPosition = 0,
-    randomList = [];
+  obstacleCell = null,
+  chestCell = null,
+  highLightning = [],
+  boardSize = null,
+  rows = boardSize,
+  columns = boardSize,
+  width = columns * 50,
+  height = rows * 50,
+  totalCells = rows * columns,
+  cellList = [],
+  tilePixelCut = 50,
+  currentPlayer = null,
+  opponentPlayer = null,
+  yOnClick = null,
+  xOnClick = null,
+  oneHundredDeduceY = null,
+  oneHundredDeduceX = null,
+  currentCellPosition = 0,
+  randomList = [];
 
 const sliderMapValue = document.getElementById("slider-map"),
-      outputMap = document.getElementById("slider-map-value");
+  outputMap = document.getElementById("slider-map-value");
 outputMap.innerHTML = sliderMapValue.value; // Display the default slider value
 // Update the current slider value (each time you drag the slider handle)
 sliderMapValue.oninput = function () {
   outputMap.innerHTML = this.value;
 };
 const sliderObstacleValue = document.getElementById("slider-obstacle"),
-      outputObstacle = document.getElementById("slider-obstacle-value");
+  outputObstacle = document.getElementById("slider-obstacle-value");
 outputObstacle.innerHTML = sliderObstacleValue.value; // Display the default slider value
 // Update the current slider value (each time you drag the slider handle)
 sliderObstacleValue.oninput = function () {
   outputObstacle.innerHTML = this.value;
 };
 const sliderChestValue = document.getElementById("slider-chest"),
-      outputChest = document.getElementById("slider-chest-value");
+  outputChest = document.getElementById("slider-chest-value");
 outputChest.innerHTML = sliderChestValue.value; // Display the default slider value
 // Update the current slider value (each time you drag the slider handle)
 sliderChestValue.oninput = function () {

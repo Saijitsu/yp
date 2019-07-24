@@ -64,6 +64,7 @@ body {
   margin: 20px;
   margin-top: 40px;
   text-align: center;
+  padding: 30px;
 }
 
 #game-option p {
@@ -73,7 +74,6 @@ body {
 #start-button {
   font-family: "Bangers-Regular";
   margin: auto;
-  margin-top: 40px;
   background: linear-gradient(359deg, #ffffff, #1fc9f3dc);
   background-size: 400% 400%;
   -webkit-animation: gradientSquare 4s ease infinite;
@@ -111,6 +111,7 @@ li:hover:before {
   width: 100%;
   height: 25px;
   background: #d3d3d3;
+  margin-bottom: 20px;
   outline: none;
   opacity: 0.8;
   -webkit-transition: .2s;
@@ -328,6 +329,7 @@ header {
   background-color: black;
   color: whitesmoke;
   position: relative;
+  height: 210px;
 }
 
 header h1,
@@ -355,9 +357,6 @@ header h3 {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 100;
-  margin-top: -5px;
-  margin-bottom: 40px;
 }
 
 header::after {
@@ -366,11 +365,7 @@ header::after {
   width: 100%;
   position: absolute;
   bottom: -44px;
-  left: 0;
   content: "";
-  margin-top: 100%;
-  margin-top: 43px;
-  z-index: 2;
 }
 
 main {
@@ -511,7 +506,7 @@ button {
 #menu-music-button,
 #mute-music-button,
 #restart-game {
-  justify-content: space-around;
+  justify-content: center;
 }
 
 #restart-game {
@@ -524,7 +519,6 @@ button {
 #mute-music-button {
   font-family: "Bangers-Regular";
   margin: auto;
-  margin-top: 40px;
   background: linear-gradient(70deg, #00a2ff 10%, #65e9ee 20%, white 50%, #65e9ee 70%, #00a2ff 90%);
 }
 
