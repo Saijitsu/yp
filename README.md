@@ -11,11 +11,11 @@
 - refactoring
 - check methode
 - add new skills on character
-- batman/batwoman robin/robinette variable
+- batman/batwoman Robin/Robinette variable
 
 ### Refactoring
 - currentPlayerIs() too long
-- changeDropArea() Repeat
+- changeDropArea() Repeat, check if it's works board>100
 
 ### Found music Royalty free
 
@@ -34,17 +34,19 @@
 - HTML 5 (API canvas / tilemapping)
 - CSS (keyframes / sprite)
 
-### Music (in progress)
-- Menu
-- Adventure
-- Fight
-- warning (mignon character)
-- victory
+### Music
+- In progress: local test to do
+- DONE. Menu
+- DONE. Adventure
+- DONE. Fight
+- DONE. warning (mignon character)
+- DONE. victory
 
 ### Design (in progress)
-- Background 
-- bar
-- button 
-- more
+- DONE. Background 
+- bar ---(YP)----
+- button start : green ?
+- Linear gradient => back canvas
+- dialog box => useless square
 
 

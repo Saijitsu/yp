@@ -88,7 +88,7 @@ class Character {
       let deduceYXandCell = lessThanOneHundredCells();
       let deduceY = deduceYXandCell[0];
       let deduceX = deduceYXandCell[1];
-      let cellWhereToDrop = deduceYXandCell[2]
+      let cellWhereToDrop = deduceYXandCell[2];
       let cell = new Cell(this, cellWhereToDrop, deduceY, deduceX, false);
       board[deduceY][deduceX] = cell;
       this.position = cell.numberCell;
